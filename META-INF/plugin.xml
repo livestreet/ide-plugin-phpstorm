@@ -1,0 +1,58 @@
+<idea-plugin version="2">
+  <id>com.livestreetdevelopers.lsframeworksupport.id</id>
+  <name>LiveStreet Framework support</name>
+  <version>1.0</version>
+  <vendor email="office@livestreetcms.com" url="http://www.livestreetcms.com">LiveStreet Developers Team</vendor>
+
+  <description><![CDATA[
+      LiveStreet Framework support
+      ]]></description>
+
+  <change-notes><![CDATA[
+      <b>0.8-0.9</b><br>
+      Добавленна подсказка при вводе параметров<br>
+      Добавлен возвращемый тип.<br>
+      <b>0.9-1.0</b><br>
+      Исправлен глюк - мигание подсказки при вводе параметров<br>
+      ]]>
+  </change-notes>
+
+  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+  <!--idea-version since-build="107.105"/-->
+  <idea-version since-build="111.0"/>
+  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+
+
+  <depends>com.intellij.modules.platform</depends>
+  <!--depends>com.intellij.modules.lang</depends !-->
+  <!--depends>com.jetbrains.php</depends !-->
+
+  <!--depends>com.jetbrains.php</depends-->
+
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+      <action id="RefreshCompletionsActionId" class="lsMagicalMethods.RefreshCompletions" text="RefreshCompletions"
+              description="RefreshCompletions Action">
+          <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt R"/>
+      </action>
+  </actions>
+
+  <extensions defaultExtensionNs="com.intellij">
+
+      <completion.contributor language="any" implementationClass="lsMagicalMethods.LsCompletionContributor"/>
+      <!--psi.referenceContributor language="PHP" implementation="lsMagicalMethods.LsPsiReferenceContributor"/-->
+      <codeInsight.parameterInfo  language="PHP" implementationClass="lsMagicalMethods.LsParameterInfoHandler"/>
+
+      <!-- Add your extensions here -->
+  </extensions>
+</idea-plugin>
